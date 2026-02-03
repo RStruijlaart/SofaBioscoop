@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace SofaBioscoop.Domain
@@ -24,7 +25,58 @@ namespace SofaBioscoop.Domain
 
 		public double CalculatePrice()
 		{
-			return 0.0;
+			double price = 0;
+            DateTime dateTime = this.tickets[0].GetMovieScreening().GetDateTime();
+
+            if (isStudentOrder)
+			{
+
+				int counter = 1;
+                foreach (MovieTicket ticket in this.tickets) 
+				{
+					if(counter % 2 == 0)
+					{
+						counter++;
+						continue;
+					}
+					
+					if (ticket.IsPremiumTicket())
+					{
+						price += ticket.GetPrice() - 1;
+					}
+					else
+					{
+						price += ticket.GetPrice();
+					}
+					counter++;
+				}
+
+				if (this.tickets.Count >= 6)
+				{
+					price = price * 0.9;
+				}
+
+			}
+			else
+			{
+                int counter = 1;
+                foreach (MovieTicket ticket in this.tickets)
+                {
+                    if (counter % 2 == 0 && (dateTime.DayOfWeek != DayOfWeek.Saturday) || (dateTime.DayOfWeek != DayOfWeek.Sunday))
+                    {
+                        counter++;
+                        continue;
+                    }
+                    price += ticket.GetPrice();
+                }
+
+                if (this.tickets.Count >= 6 && (dateTime.DayOfWeek == DayOfWeek.Saturday) || (dateTime.DayOfWeek == DayOfWeek.Sunday))
+                {
+                    price = price * 0.9;
+                }
+            }
+
+            return price;
 		}
 
 		public void Export(TicketExportFormat exportFormat)

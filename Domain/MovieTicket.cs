@@ -17,7 +17,17 @@ namespace SofaBioscoop.Domain
 
         public bool IsPremiumTicket() => isPremium;
 
-        public double GetPrice() => movieScreening.GetPricePerSeat();
+        public double GetPrice()
+        {
+            if (this.isPremium)
+            {
+                return movieScreening.GetPricePerSeat() + 3;
+            }
+            else
+            {
+                return movieScreening.GetPricePerSeat();
+            }  
+        }
 
         public override string ToString()
         {

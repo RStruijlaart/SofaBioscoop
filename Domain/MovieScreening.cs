@@ -24,7 +24,12 @@ public class MovieScreening
 
     public double GetPricePerSeat()
     {
-        return 1;
+        return pricePerSeat;
+    }
+
+    public DateTime GetDateTime()
+    {
+        return dateAndTime;
     }
 
     public override string ToString()
