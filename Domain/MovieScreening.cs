@@ -12,16 +12,17 @@ public class MovieScreening
     private DateTime dateAndTime;
     private double pricePerSeat;
     private Movie movie;
+    private List<MovieTicket> movieTickets = new List<MovieTicket>();
 
     public MovieScreening(Movie movie, DateTime dateAndTime, double pricePerSeat)
     {
         this.dateAndTime = dateAndTime;
         this.pricePerSeat = pricePerSeat;
         this.movie = movie;
-        movie.addScreening(this);
+        movie.AddScreening(this);
     }
 
-    public double getPricePerSeat()
+    public double GetPricePerSeat()
     {
         return 1;
     }

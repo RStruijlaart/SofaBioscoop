@@ -16,7 +16,7 @@ public class Movie
         this.title = title;
     }
 
-    public void addScreening(MovieScreening movieScreening)
+    public void AddScreening(MovieScreening movieScreening)
     {
         this.movieScreenings.Add(movieScreening);
     }
