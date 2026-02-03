@@ -9,6 +9,7 @@ namespace SofaBioscoop.Domain;
 public class Movie
 {
     private string title;
+    private List<MovieScreening> movieScreenings = new List<MovieScreening>();
 
     public Movie(string title)
     {
@@ -17,7 +18,7 @@ public class Movie
 
     public void addScreening(MovieScreening movieScreening)
     {
-        
+        this.movieScreenings.Add(movieScreening);
     }
 
     public override string ToString()

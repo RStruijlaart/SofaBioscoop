@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,11 +11,13 @@ public class MovieScreening
 {
     private DateTime dateAndTime;
     private double pricePerSeat;
+    private Movie movie;
 
     public MovieScreening(Movie movie, DateTime dateAndTime, double pricePerSeat)
     {
         this.dateAndTime = dateAndTime;
         this.pricePerSeat = pricePerSeat;
+        this.movie = movie;
         movie.addScreening(this);
     }
 
