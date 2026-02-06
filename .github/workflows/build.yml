@@ -61,13 +61,17 @@ jobs:
 
           # Find coverage file
           $coverageFile = Get-ChildItem -Path ./TestResults -Recurse -Filter coverage.cobertura.xml | Select-Object -First 1
+          Write-Host "Coverage file found at: $coverageFile"
 
-          # Begin Sonar analysis with coverage
+          # Convert to forward slashes for Sonar
+          $coveragePath = $coverageFile.FullName -replace '\\','/'
+
+          # Start Sonar analysis
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin `
             /k:"RStruijlaart_SofaBioscoop" `
             /o:"rstruijlaart" `
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" `
-            /d:sonar.cs.opencover.reportsPaths="$coverageFile"
+            /d:sonar.cs.opencover.reportsPaths="$coveragePath"
 
           # Rebuild to let Sonar capture metrics
           dotnet build
