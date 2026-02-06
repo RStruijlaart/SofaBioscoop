@@ -8,7 +8,7 @@ namespace SofaBioscoopTests
         public void Test1()
         {
             int result = 1;
-            result.Should().Be(1);
+            result.Should().Be(2);
         }
     }
 }
