@@ -14,10 +14,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available.
+          distribution: "zulu" # Alternative distribution options are available.
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: Cache SonarQube Cloud packages
         uses: actions/cache@v4
         with:
@@ -37,12 +37,25 @@ jobs:
         run: |
           New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
-      - name: Build and analyze
+      - name: Build, test, and analyze with coverage
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"RStruijlaart_SofaBioscoop" /o:"rstruijlaart" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin `
+            /k:"RStruijlaart_SofaBioscoop" `
+            /o:"rstruijlaart" `
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
           dotnet build
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-      
+
+          # Run tests with coverage
+          dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+          # Find the coverage file
+          $coverageFile = Get-ChildItem -Path ./TestResults -Recurse -Filter coverage.cobertura.xml | Select-Object -First 1
+
+          # End SonarQube analysis with coverage
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner end `
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}" `
+            /d:sonar.cs.opencover.reportsPaths="$coverageFile"
