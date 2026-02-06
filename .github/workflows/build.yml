@@ -45,3 +45,4 @@ jobs:
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"RStruijlaart_SofaBioscoop" /o:"rstruijlaart" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
           dotnet build
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      

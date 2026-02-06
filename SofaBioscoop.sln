@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36915.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SofaBioscoop", "SofaBioscoop.csproj", "{7CF0F1B3-3644-42D5-A053-FE9FC039A81C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SofaBioscoop", "SofaBioscoop\SofaBioscoop.csproj", "{7CF0F1B3-3644-42D5-A053-FE9FC039A81C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SofaBioscoopTests", "SofaBioscoopTests\SofaBioscoopTests.csproj", "{57691BFE-70A6-4573-B0EE-C5F842DB420B}"
 EndProject
