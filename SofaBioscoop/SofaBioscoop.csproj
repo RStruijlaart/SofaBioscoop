@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="SofaBioscoopTests\SofaBioscoopTests.csproj" />
+  
   </ItemGroup>
 
 </Project>
