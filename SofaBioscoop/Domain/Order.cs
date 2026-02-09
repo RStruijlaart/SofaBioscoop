@@ -62,15 +62,16 @@ namespace SofaBioscoop.Domain
                 int counter = 1;
                 foreach (MovieTicket ticket in this.tickets)
                 {
-                    if (counter % 2 == 0 && (dateTime.DayOfWeek != DayOfWeek.Saturday) || (dateTime.DayOfWeek != DayOfWeek.Sunday))
+                    if (counter % 2 == 0 && (dateTime.DayOfWeek != DayOfWeek.Saturday && dateTime.DayOfWeek != DayOfWeek.Sunday))
                     {
                         counter++;
                         continue;
                     }
                     price += ticket.GetPrice();
+                    counter++;
                 }
 
-                if (this.tickets.Count >= 6 && (dateTime.DayOfWeek == DayOfWeek.Saturday) || (dateTime.DayOfWeek == DayOfWeek.Sunday))
+                if (this.tickets.Count >= 6 && (dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday))
                 {
                     price = price * 0.9;
                 }
