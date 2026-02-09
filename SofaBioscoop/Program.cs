@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using SofaBioscoop.Domain;
+using SofaBioscoop.Domain.Order;
 
 Console.WriteLine("Hello, World!");
 

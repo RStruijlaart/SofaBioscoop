@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 using SofaBioscoop.Domain;
+using SofaBioscoop.Domain.Order;
 
 namespace SofaBioscoopTests
 {
