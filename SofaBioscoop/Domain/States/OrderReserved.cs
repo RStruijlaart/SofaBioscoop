@@ -10,17 +10,19 @@ namespace SofaBioscoop.Domain.States
     {
         public string Cancel(Order order)
         {
-            throw new NotImplementedException();
+            order.SetState(new OrderCanceled());
+            return "The order has been canceled!";
         }
 
         public string Pay(Order order)
         {
-            throw new NotImplementedException();
+            order.SetState(new OrderProcessed());
+            return ("your payment is being processed");
         }
 
         public string Submit(Order order)
         {
-            throw new NotImplementedException();
+            return "You already submitted!";
         }
     }
 }

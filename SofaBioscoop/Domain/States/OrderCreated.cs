@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace SofaBioscoop.Domain.States
 {
+
     public class OrderCreated : OrderState
     {
         public string Cancel(Order order)
         {
-            throw new NotImplementedException();
+            return "The order cannot be canceled in the current state!";
         }
 
         public string Pay(Order order)
         {
-            throw new NotImplementedException();
+            return "You have not chosen your seats yet. Payment is restricted!";
         }
 
         public string Submit(Order order)
         {
-            throw new NotImplementedException();
+            order.SetState(new OrderReserved());
+            return "Your order has been submitted!";
         }
     }
 }
