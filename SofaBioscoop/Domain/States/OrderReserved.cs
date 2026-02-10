@@ -20,6 +20,12 @@ namespace SofaBioscoop.Domain.States
             return ("your payment is being processed");
         }
 
+        public string Reminder(Order order)
+        {
+            order.SetState(new OrderProvisional());
+            return "Order is not provisional";
+        }
+
         public string Submit(Order order)
         {
             return "You already submitted!";

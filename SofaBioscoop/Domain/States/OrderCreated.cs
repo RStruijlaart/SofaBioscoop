@@ -19,6 +19,11 @@ namespace SofaBioscoop.Domain.States
             return "You have not chosen your seats yet. Payment is restricted!";
         }
 
+        public string Reminder(Order order)
+        {
+            return "Order has not yet been submitted";
+        }
+
         public string Submit(Order order)
         {
             order.SetState(new OrderReserved());

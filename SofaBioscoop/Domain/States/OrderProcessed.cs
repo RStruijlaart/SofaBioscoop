@@ -18,6 +18,11 @@ namespace SofaBioscoop.Domain.States
             return "Your order has already been processed";
         }
 
+        public string Reminder(Order order)
+        {
+            return "Your order has already been processed";
+        }
+
         public string Submit(Order order)
         {
             return "Your order has already been processed";

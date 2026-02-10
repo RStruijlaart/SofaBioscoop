@@ -17,7 +17,12 @@ namespace SofaBioscoop.Domain.States
         public string Pay(Order order)
         {
             order.SetState(new OrderProcessed());
-            return "Your order has processed";
+            return "Your order has now been processed";
+        }
+
+        public string Reminder(Order order)
+        {
+            return "Order is already Provisional";
         }
 
         public string Submit(Order order)

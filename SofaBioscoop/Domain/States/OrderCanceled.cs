@@ -18,6 +18,11 @@ namespace SofaBioscoop.Domain.States
             return "Your order has already been canceled";
         }
 
+        public string Reminder(Order order)
+        {
+            return "Order has already been canceled";
+        }
+
         public string Submit(Order order)
         {
             return "Your order has already been canceled";
