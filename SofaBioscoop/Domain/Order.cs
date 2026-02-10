@@ -116,5 +116,10 @@ namespace SofaBioscoop.Domain
 		{
             Console.WriteLine(this.state.Submit(this));
 		}
-	}
+
+        public void Reminder()
+        {
+            Console.WriteLine(this.state.Reminder(this));
+        }
+    }
 }

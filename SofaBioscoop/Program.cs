@@ -40,4 +40,5 @@ double totalPrice = order.CalculatePrice();
 Console.WriteLine("Order number: " + order.GetOrderNr());
 Console.WriteLine("Total price: €" + totalPrice.ToString("0.00"));
 
-Console.ReadLine();
+order.Submit();
+order.Pay();
