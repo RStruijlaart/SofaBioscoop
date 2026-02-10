@@ -10,17 +10,17 @@ namespace SofaBioscoop.Domain.States
     {
         public string Cancel(Order order)
         {
-            throw new NotImplementedException();
+            return "Your order has already been canceled"; 
         }
 
         public string Pay(Order order)
         {
-            throw new NotImplementedException();
+            return "Your order has already been canceled";
         }
 
         public string Submit(Order order)
         {
-            throw new NotImplementedException();
+            return "Your order has already been canceled";
         }
     }
 }

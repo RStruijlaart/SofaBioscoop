@@ -9,7 +9,6 @@ namespace SofaBioscoop.Domain
 		private int orderNr;
 		private bool isStudentOrder;
 		private List<MovieTicket> tickets;
-
 		private OrderState state;
 
 		public Order(int orderNr, bool isStudentOrder)
@@ -104,17 +103,18 @@ namespace SofaBioscoop.Domain
 
 		public void Pay()
 		{
-			this.state.Pay(this);
+			Console.WriteLine(this.state.Pay(this));
+
 		}
 
 		public void Cancel()
 		{
-			this.state.Cancel(this);
+            Console.WriteLine(this.state.Cancel(this));
 		}
 
 		public void Submit()
 		{
-			this.state.Submit(this);
+            Console.WriteLine(this.state.Submit(this));
 		}
 	}
 }
