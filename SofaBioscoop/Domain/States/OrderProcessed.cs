@@ -8,17 +8,17 @@ namespace SofaBioscoop.Domain.States
 {
     public class OrderProcessed : OrderState
     {
-        public string cancel(Order order)
+        public string Cancel(Order order)
         {
             throw new NotImplementedException();
         }
 
-        public string pay(Order order)
+        public string Pay(Order order)
         {
             throw new NotImplementedException();
         }
 
-        public string submit(Order order)
+        public string Submit(Order order)
         {
             throw new NotImplementedException();
         }

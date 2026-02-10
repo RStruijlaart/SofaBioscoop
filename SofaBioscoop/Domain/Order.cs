@@ -96,5 +96,25 @@ namespace SofaBioscoop.Domain
 				File.WriteAllText($"order_{orderNr}.json", json);
 			}
 		}
+
+		public void SetState(OrderState state)
+		{
+			this.state = state;
+		}
+
+		public void Pay()
+		{
+			this.state.Pay(this);
+		}
+
+		public void Cancel()
+		{
+			this.state.Cancel(this);
+		}
+
+		public void Submit()
+		{
+			this.state.Submit(this);
+		}
 	}
 }

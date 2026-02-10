@@ -8,8 +8,8 @@ namespace SofaBioscoop.Domain.States
 {
     public interface OrderState
     {
-        public string submit(Order order);
-        public string pay(Order order);
-        public string cancel(Order order);
+        public string Submit(Order order);
+        public string Pay(Order order);
+        public string Cancel(Order order);
     }
 }
