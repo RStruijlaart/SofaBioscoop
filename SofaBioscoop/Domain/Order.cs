@@ -1,3 +1,4 @@
+using SofaBioscoop.Domain.States;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 
@@ -9,11 +10,14 @@ namespace SofaBioscoop.Domain
 		private bool isStudentOrder;
 		private List<MovieTicket> tickets;
 
+		private OrderState state;
+
 		public Order(int orderNr, bool isStudentOrder)
 		{
 			this.orderNr = orderNr;
 			this.isStudentOrder = isStudentOrder;
 			this.tickets = new List<MovieTicket>();
+			this.state = new OrderCreated();
 		}
 
 		public int GetOrderNr() => orderNr;
